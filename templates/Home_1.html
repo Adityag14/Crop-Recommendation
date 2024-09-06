@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AgroWeather</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/myhome.css')}}">
+    <style>
+      /* Ensure the video covers the entire background */
+      #bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      /* Ensure the content appears over the video */
+      main {
+        position: relative;
+        z-index: 1;
+        color: black; /* Change text color to black */
+        text-align: center;
+        padding: 50px;
+      }
+
+      header nav ul {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Style for headings */
+      h1 {
+        color: white; /* Keep headings white for contrast */
+      }
+      h2, h3 {
+        color: black; /* Keep headings white for contrast */
+      }
+      /* Style for paragraphs */
+      p {
+        font-size: 20px; /* Increase font size */
+        font-family: 'Arial', sans-serif; /* Change font family */
+        line-height: 1.6; /* Increase line height for better readability */
+        max-width: 800px; /* Optional: limit the paragraph width for better readability */
+        margin: 0 auto; /* Center the paragraph */
+      }
+
+      /* Button Styles */
+      input[type="submit"] {
+        display: block;
+        margin: 0 auto;
+        width: 120px;
+        padding: 10px 20px; /* Increase padding for better size */
+        border: none;
+        border-radius: 25px; /* Rounded corners */
+        background-color: #4CAF50;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s ease; /* Smooth transition for all properties */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 3D shadow effect */
+        transform: perspective(1px) translateZ(0); /* For smooth 3D effect */
+      }
+
+      /* Button Hover Effect */
+      input[type="submit"]:hover {
+        background-color: #45a049; /* Slightly darker green on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+        transform: translateY(-4px); /* Lift the button on hover */
+      }
+
+      /* Button Active Effect */
+      input[type="submit"]:active {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow when button is pressed */
+        transform: translateY(2px); /* Slightly move down when clicked */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Video background -->
+    <video id="bg-video" autoplay muted loop>
+      <source src="{{url_for('static',filename='style/mixkit-time-lapse-of-a-green-meadow-4070-full-hd.mp4')}}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <main>
+      <h1>AgroWeather</h1>
+      <p>Welcome to AgroWeather! Our platform helps you choose the best crops based on real-time weather data. Get tailored recommendations to optimize your farm's yield regardless of weather conditions.</p>
+      <br>
+      <h3>Embark on a Smarter Farming Journey with AgroWeather</h3>
+      <br>
+      <h2>Click the button below for Weather-Based Crop Recommendations</h2>
+      <form action="/Predict">
+        <input type="submit" id="Predict" name="Predict" value="Predict">
+      </form>
+    </main>
+  </body>
+</html>
